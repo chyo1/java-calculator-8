@@ -16,6 +16,7 @@ public class Validator {
     // 구분자가 형식에 맞게 입력됐는지 검증
     public void validateSeparator(String s, char[] basicSeparators) {
         validateBasicSeparator(s, basicSeparators);
+        validateCustomSeparatorForm(s);
     }
 
     // 기본 구분자가 형식에 맞게 입력됐는지 검증
@@ -39,6 +40,28 @@ public class Validator {
         }
         return sb.toString();
     }
-    // 커스텀 구분자가 문자열 앞 부분에 위치해 있는지
+
+    // 커스텀 구분자가 형식에 맞게 입력됐는지
+    public void validateCustomSeparatorForm(String s) {
+        // 커스텀 구분자가 문자열 앞 부분에 위치해 있는지
+        if (s.startsWith("//")) {
+            // 커스텀 구분자가 1개인지
+            if (s.charAt(3) != '\n') {
+                throw new IllegalArgumentException("커스텀 구분자의 입력이 형식에 맞지 않습니다.");
+            }
+
+            // 커스텀 문자가 숫자일 때
+            char customSeparator = s.charAt(2);
+            if (Character.isDigit(customSeparator)) {
+                throw new IllegalArgumentException("커스텀 구분자는 숫자가 아닌 문자여야 합니다.");
+            }
+
+            // 커스텀 구분자 지정 문자가 커스텀 구분자로 들어온 경우
+            if (customSeparator == '\n') {
+                throw new IllegalArgumentException("커스텀 구분자는 커스텀 구분자의 지정 문자가 아닌 문자여야 합니다.");
+            }
+        }
+    }
+
     // 지정되지 않은 문자열이 입력됐는지
 }
