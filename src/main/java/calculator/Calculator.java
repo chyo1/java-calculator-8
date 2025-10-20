@@ -17,7 +17,7 @@ public class Calculator {
 
         // 입력이 형식에 맞게 들어왔는지 확인
         validator.validateInputEmpty(inputStr);
-        validator.validateBasicSeparator(inputStr, basicSeparators);
+        validator.validateBasicSeparator(inputStr, basicSeparators, parser);
 
         // 커스텀 구분자 확인
         if (isCustomSeparatorExisted(inputStr)) {
@@ -26,7 +26,7 @@ public class Calculator {
         }
 
         // 문자열 형식 오류 확인
-        validator.validateSeparatorType(inputStr, basicSeparators, customSeparator);
+        validator.validateSeparatorType(inputStr, basicSeparators, customSeparator, parser);
 
         // 계산
         String[] inputs = parser.getNumbers(inputStr, basicSeparators, customSeparator);

@@ -10,25 +10,14 @@ public class Validator {
     }
 
     // 기본 구분자가 형식에 맞게 입력됐는지 검증
-    public void validateBasicSeparator(String s, Character[] basicSeparators) {
-        String separators = makeSeparatorIntoSplitForm(basicSeparators);
+    public void validateBasicSeparator(String s, Character[] basicSeparators, Parser parser) {
+        String separators = parser.makeSeparatorIntoSplitForm(basicSeparators, null);
         String[] splitInput = s.split(separators);
         for (String split : splitInput) {
             if (split.isEmpty()) {
                 throw new IllegalArgumentException("기본 구분자의 입력이 형식에 맞지 않습니다.");
             }
         }
-    }
-
-    private String makeSeparatorIntoSplitForm(Character[] separators) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < separators.length; i++) {
-            sb.append(separators[i]);
-            if (i < separators.length - 1) {
-                sb.append("|");
-            }
-        }
-        return sb.toString();
     }
 
     // 커스텀 구분자가 형식에 맞게 입력됐는지
@@ -53,11 +42,9 @@ public class Validator {
     }
 
     // 지정되지 않은 문자열이 입력됐는지
-    public void validateSeparatorType(String input, Character[] basicSeparators, Character customSeparator) {
-        String separators = makeSeparatorIntoSplitForm(basicSeparators);
-        if (customSeparator != null) {
-            separators = separators + "|" + customSeparator;
-        }
+    public void validateSeparatorType(String input, Character[] basicSeparators, Character customSeparator,
+                                      Parser parser) {
+        String separators = parser.makeSeparatorIntoSplitForm(basicSeparators, customSeparator);
 
         String[] splitInput = input.split(separators);
         for (String split : splitInput) {

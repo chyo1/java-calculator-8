@@ -5,14 +5,23 @@ public class Parser {
 
     // 구분자 기준 분리
     public String[] getNumbers(String s, Character[] basicSeparators, Character customSeparator) {
+        String separators = makeSeparatorIntoSplitForm(basicSeparators, customSeparator);
+        return s.split(separators);
+    }
+
+    public String makeSeparatorIntoSplitForm(Character[] separators, Character customSeparator) {
         StringBuilder sb = new StringBuilder();
-        sb.append(basicSeparators[0]);
-        sb.append("|" + basicSeparators[1]);
-        if (customSeparator != null) {
-            sb.append("|" + customSeparator);
+        for (int i = 0; i < separators.length; i++) {
+            sb.append(separators[i]);
+            if (i < separators.length - 1) {
+                sb.append("|");
+            }
         }
 
-        String separators = sb.toString();
-        return s.split(separators);
+        if (customSeparator != null) {
+            sb.append("|");
+            sb.append(customSeparator);
+        }
+        return sb.toString();
     }
 }
