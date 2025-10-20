@@ -1,5 +1,7 @@
 package calculator;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Calculator {
     private IOController ioController = new IOController();
     private Parser parser = new Parser();
@@ -34,6 +36,7 @@ public class Calculator {
 
         // 출력
         ioController.print(total);
+        Console.close();
     }
 
     // 커스텀 구분자 추출
