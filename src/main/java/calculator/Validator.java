@@ -34,6 +34,7 @@ public class Validator {
     // 커스텀 구분자가 형식에 맞게 입력됐는지
     public void validateCustomSeparatorForm(String s) {
         // 커스텀 구분자가 문자열 앞 부분에 위치해 있는지
+        s = s.replace("\\n", "\n");
         if (s.startsWith("//")) {
             // 커스텀 구분자가 1개인지
             if (s.charAt(3) != '\n') {
