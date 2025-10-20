@@ -6,7 +6,7 @@ public class Calculator {
     private Operator operator = new Operator();
     private Validator validator = new Validator();
 
-    private char[] basicSeperators = {',', ';'};
+    private char[] basicSeperators = {',', ':'};
     private Character customSeparator = null;
 
     public void execute() {
