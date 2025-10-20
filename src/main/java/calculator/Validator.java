@@ -63,6 +63,9 @@ public class Validator {
         for (String split : splitInput) {
             try {
                 int num = Integer.parseInt(split);
+                if (num < 0) {
+                    throw new IllegalArgumentException("양수만 입력 가능합니다.");
+                }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("구분자 이외의 입력이 들어 있습니다.");
             }
