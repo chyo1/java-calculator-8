@@ -8,7 +8,7 @@ public class Calculator {
     private Operator operator = new Operator();
     private Validator validator = new Validator();
 
-    private char[] basicSeperators = {',', ':'};
+    private final char[] basicSeparators = {',', ':'};
     private Character customSeparator = null;
 
     public void execute() {
@@ -17,7 +17,7 @@ public class Calculator {
 
         // 입력이 형식에 맞게 들어왔는지 확인
         validator.validateInputEmpty(inputStr);
-        validator.validateBasicSeparator(inputStr, basicSeperators);
+        validator.validateBasicSeparator(inputStr, basicSeparators);
 
         // 커스텀 구분자 확인
         if (isCustomSeparatorExisted(inputStr)) {
@@ -25,10 +25,10 @@ public class Calculator {
         }
 
         // 문자열 형식 오류 확인
-        validator.validateSeparatorType(inputStr, basicSeperators, customSeparator);
+        validator.validateSeparatorType(inputStr, basicSeparators, customSeparator);
 
         // 계산
-        String[] inputs = parser.getNumbers(inputStr, basicSeperators, customSeparator);
+        String[] inputs = parser.getNumbers(inputStr, basicSeparators, customSeparator);
         int total = 0;
         for (String input : inputs) {
             total = operator.sum(total, Integer.parseInt(input));
