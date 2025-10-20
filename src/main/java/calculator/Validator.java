@@ -64,7 +64,17 @@ public class Validator {
     }
 
     // 지정되지 않은 문자열이 입력됐는지
-    public void validateSeparatorType() {
+    public void validateSeparatorType(String input, char[] basicSeparators, char customSeparator) {
+        String separators = makeSeparatorIntoSplitForm(basicSeparators);
+        separators = separators + "|" + customSeparator;
 
+        String[] splitInput = input.split(separators);
+        for (String split : splitInput) {
+            try {
+                int num = Integer.parseInt(split);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("구분자 이외의 입력이 들어 있습니다.");
+            }
+        }
     }
 }
