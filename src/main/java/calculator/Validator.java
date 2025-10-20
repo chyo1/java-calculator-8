@@ -4,6 +4,7 @@ public class Validator {
     // 입력이 형식에 맞게 들어왔는지 확인
     public void validateInputFormat(String s, char[] basicSeparators) {
         validateInputEmpty(s, basicSeparators);
+        validateSeparator(s, basicSeparators);
     }
 
     // 입력이 없을 때 (빈 문자열, null)
