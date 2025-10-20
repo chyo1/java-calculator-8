@@ -9,12 +9,6 @@ public class Validator {
         }
     }
 
-    // 구분자가 형식에 맞게 입력됐는지 검증
-    public void validateSeparator(String s, char[] basicSeparators) {
-        validateBasicSeparator(s, basicSeparators);
-        validateCustomSeparatorForm(s);
-    }
-
     // 기본 구분자가 형식에 맞게 입력됐는지 검증
     public void validateBasicSeparator(String s, char[] basicSeparators) {
         String separators = makeSeparatorIntoSplitForm(basicSeparators);
