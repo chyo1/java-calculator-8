@@ -4,7 +4,7 @@ public class Parser {
     Validator validator = new Validator();
 
     // 구분자 기준 분리
-    public String[] getNumbers(String s, char[] basicSeparators, Character customSeparator) {
+    public String[] getNumbers(String s, Character[] basicSeparators, Character customSeparator) {
         StringBuilder sb = new StringBuilder();
         sb.append(basicSeparators[0]);
         sb.append("|" + basicSeparators[1]);

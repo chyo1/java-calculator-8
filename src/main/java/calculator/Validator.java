@@ -10,7 +10,7 @@ public class Validator {
     }
 
     // 기본 구분자가 형식에 맞게 입력됐는지 검증
-    public void validateBasicSeparator(String s, char[] basicSeparators) {
+    public void validateBasicSeparator(String s, Character[] basicSeparators) {
         String separators = makeSeparatorIntoSplitForm(basicSeparators);
         String[] splitInput = s.split(separators);
         for (String split : splitInput) {
@@ -20,7 +20,7 @@ public class Validator {
         }
     }
 
-    private String makeSeparatorIntoSplitForm(char[] separators) {
+    private String makeSeparatorIntoSplitForm(Character[] separators) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < separators.length; i++) {
             sb.append(separators[i]);
@@ -53,7 +53,7 @@ public class Validator {
     }
 
     // 지정되지 않은 문자열이 입력됐는지
-    public void validateSeparatorType(String input, char[] basicSeparators, Character customSeparator) {
+    public void validateSeparatorType(String input, Character[] basicSeparators, Character customSeparator) {
         String separators = makeSeparatorIntoSplitForm(basicSeparators);
         if (customSeparator != null) {
             separators = separators + "|" + customSeparator;
