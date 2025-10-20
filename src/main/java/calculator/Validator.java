@@ -18,7 +18,7 @@ public class Validator {
         validateBasicSeparator(s);
     }
 
-    // 기본 구분자가 형식에 맞게 입력됐는지
+    // 기본 구분자가 형식에 맞게 입력됐는지 검증
     public void validateBasicSeparator(String s) {
         String[] splitInput = s.split(",|;");
         for (String split : splitInput) {
