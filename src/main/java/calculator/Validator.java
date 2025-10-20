@@ -55,7 +55,9 @@ public class Validator {
     // 지정되지 않은 문자열이 입력됐는지
     public void validateSeparatorType(String input, char[] basicSeparators, Character customSeparator) {
         String separators = makeSeparatorIntoSplitForm(basicSeparators);
-        separators = separators + "|" + customSeparator;
+        if (customSeparator != null) {
+            separators = separators + "|" + customSeparator;
+        }
 
         String[] splitInput = input.split(separators);
         for (String split : splitInput) {
