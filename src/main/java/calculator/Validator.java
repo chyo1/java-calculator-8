@@ -9,7 +9,7 @@ public class Validator {
 
     // 입력이 없을 때 (빈 문자열, null)
     public void validateInputEmpty(String s) {
-        if (s == null || s.isEmpty()) {
+        if (s == null) {
             throw new IllegalArgumentException("문자열이 입력되지 않았습니다");
         }
     }
