@@ -18,7 +18,9 @@ public class Calculator {
         validator.validateBasicSeparator(inputStr, basicSeperators);
 
         // 커스텀 구분자 확인
-        checkCustomSeparator(inputStr);
+        if (isCustomSeparatorExisted(inputStr)) {
+            inputStr = inputStr.substring(5);
+        }
 
         // 문자열 형식 오류 확인
         validator.validateSeparatorType(inputStr, basicSeperators, customSeparator);
@@ -35,11 +37,14 @@ public class Calculator {
     }
 
     // 커스텀 구분자 추출
-    public void checkCustomSeparator(String s) {
+    public boolean isCustomSeparatorExisted(String s) {
         if (s.startsWith("//")) {
             validator.validateCustomSeparatorForm(s);
+        } else {
+            return false;
         }
         customSeparator = s.charAt(2);
+        return true;
     }
 
 }
