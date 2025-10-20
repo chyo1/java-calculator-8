@@ -30,11 +30,11 @@ public class Validator {
         }
     }
 
-    private String makeSeparatorIntoSplitForm(char[] basicSeparators) {
+    private String makeSeparatorIntoSplitForm(char[] separators) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < basicSeparators.length; i++) {
-            sb.append(basicSeparators[i]);
-            if (i < basicSeparators.length - 1) {
+        for (int i = 0; i < separators.length; i++) {
+            sb.append(separators[i]);
+            if (i < separators.length - 1) {
                 sb.append("|");
             }
         }
@@ -64,4 +64,7 @@ public class Validator {
     }
 
     // 지정되지 않은 문자열이 입력됐는지
+    public void validateSeparatorType() {
+
+    }
 }
