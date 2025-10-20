@@ -10,7 +10,7 @@ public class IOController {
     }
 
     // 출력하기
-    public void Print(int result) {
+    public void print(int result) {
         System.out.println("결과 : " + result);
     }
 }
