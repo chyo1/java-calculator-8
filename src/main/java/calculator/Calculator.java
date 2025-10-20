@@ -21,6 +21,7 @@ public class Calculator {
 
         // 커스텀 구분자 확인
         if (isCustomSeparatorExisted(inputStr)) {
+            customSeparator = inputStr.charAt(2);
             inputStr = inputStr.substring(5);
         }
 
@@ -46,7 +47,6 @@ public class Calculator {
         } else {
             return false;
         }
-        customSeparator = s.charAt(2);
         return true;
     }
 
