@@ -1,8 +1,6 @@
 package calculator;
 
 public class Parser {
-    private char[] basicSeperators = {',', ';'};
-    private Character customSeperator = null;
     Validator validator = new Validator();
 
     // 커스텀 구분자 추출
@@ -14,7 +12,7 @@ public class Parser {
     }
 
     // 구분자 기준 분리
-    public String[] getNumbers(String s) {
+    public String[] getNumbers(String s, char[] basicSeperators, Character customSeperator) {
         StringBuilder sb = new StringBuilder();
         sb.append(basicSeperators[0] + '|');
         sb.append(basicSeperators[1] + '|');
